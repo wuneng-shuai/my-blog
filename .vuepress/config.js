@@ -74,6 +74,10 @@ module.exports = {
 		// 	'/docs/Interview/': ['','js.md'],
 		// },
 		type: 'blog',
+    // sidebar: {
+    //   description:true,
+    // },
+    sidebar: 'auto',
 		blogConfig: {
 			category: {
 				location: 2,
@@ -84,7 +88,6 @@ module.exports = {
 				text: '标签',
 			},
 		},
-		sidebar: true,
 		logo: 'https://pan.zealsay.com/avatar/20200606105310570000000.jpg',
 		search: true,
 		searchMaxSuggestions: 10,
