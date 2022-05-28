@@ -151,6 +151,18 @@ module.exports = {
 	},
 	plugins: [
 		['@vuepress-reco/extract-code'],
+    ['@vuepress/pwa', {
+      serviceWorker: true,
+      updatePopup: {
+          message: "发现新内容可用",
+          buttonText: "刷新"
+      }
+  }],
+  ['@vuepress-reco/vuepress-plugin-kan-ban-niang',{
+      theme: ['blackCat', 'whiteCat', 'haru1', 'haru2', 'haruto', 'koharu', 'izumi', 'shizuku', 'wanko', 'miku', 'z16'],
+      clean:true
+    }
+  ],
 		// '@vuepress/nprogress':false, //默认为true，设置为false可以关闭进度条
 		[
 			'vuepress-plugin-nuggets-style-copy',
@@ -161,16 +173,12 @@ module.exports = {
 				},
 			},
 		],
-		[
-			'copyright',
-			{
+		['copyright',	{
 				authorName: '帅', // 选中的文字将无法被复制
 				minLength: 30, // 如果长度超过  30 个字符
 			},
 		],
-		[
-			'@vuepress-reco/vuepress-plugin-bgm-player',
-			{
+		['@vuepress-reco/vuepress-plugin-bgm-player',	{
 				audios: [
 					// 本地文件示例
 					// 网络文件示例
@@ -200,7 +208,7 @@ module.exports = {
 					},
 				],
 				// 是否默认缩小
-				autoShrink: false,
+				autoShrink: true,
 				// 缩小时缩为哪种模式
 				shrinkMode: 'float',
 				// 悬浮窗样式
