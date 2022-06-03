@@ -208,9 +208,9 @@ module.exports = {
 					},
 				],
 				// 是否默认缩小
-				autoShrink: true,
+				autoShrink: false,
 				// 缩小时缩为哪种模式
-				shrinkMode: 'float',
+				shrinkMode: 'mini',
 				// 悬浮窗样式
 				floatStyle: { bottom: '10px', 'z-index': '999999' },
 			},
