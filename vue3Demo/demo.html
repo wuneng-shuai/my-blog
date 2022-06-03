@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  function effect(fn, options = {}) {
+  const effectFn = () => {
+    cleanup(effectFn)
+    activeEffect = effectFn
+    effectStack.push(effectFn)
+    fn()
+    effectStack.pop()
+    activeEffect = effectStack[effectStack.length - 1]
+  }
+  effectFn.options = options
+  effectFn.deps = []
+  // 只有非执行的时候才执行
+  if (!options.lazy) {
+    effectFn()
+  }
+  // 将副作用函数返回
+  return effectFn
+}
+
+//cleanUp函数的实现
+function cleanUp(effectFn){
+   // 首先便利effectFn.deps数组
+   for(let i=0;i<effectFn.deps.length;i++){
+     //deps是依赖集合
+  const deps=effectFn.deps[i]
+  //将effectFn从依赖集合中删除
+  deps.delete(effectFn)
+  }
+  //最后重置deps数组
+  effectFn.deps.length = 0
+ }
+
+const effectFn = effect(
+  () => {
+    console.log(obj.bar)
+  },
+  {
+    // 懒执行配置
+    lazy: true,
+  }
+)
+
+// 可以手动调用 effectFn的执行
+effectFn()
+</script>
+</html>
