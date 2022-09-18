@@ -164,15 +164,15 @@ module.exports = {
     }
   ],
 		// '@vuepress/nprogress':false, //默认为true，设置为false可以关闭进度条
-		[
-			'vuepress-plugin-nuggets-style-copy',
-			{
-				copyText: '复制代码',
-				tip: {
-					content: '复制成功',
-				},
-			},
-		],
+		// [
+		// 	'vuepress-plugin-nuggets-style-copy',
+		// 	{
+		// 		copyText: '复制代码',
+		// 		tip: {
+		// 			content: '复制成功',
+		// 		},
+		// 	},
+		// ],
 		['copyright',	{
 				authorName: '帅', // 选中的文字将无法被复制
 				minLength: 30, // 如果长度超过  30 个字符
